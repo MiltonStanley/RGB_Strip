@@ -9,25 +9,46 @@ class rgb_color{
   int blue;
 };
 
-void fade(rgb_color, rgb_color);
+void balancedFade(rgb_color, rgb_color);
 void set(rgb_color &, int, int, int);
+void printColor(rgb_color const);
 
 int main(){
   rgb_color color1;
+  set(color1, 255, 0,0);
   rgb_color color2;
-  fade(color1, color2);
+  set(color2, 2989, 155, 10);
+  printColor(color1);
+  balancedFade(color1, color2);
 
   return 0;
 }
 
-void fade(rgb_color start, rgb_color end){
-  cout << "start r - end r: " << start.red - end.red << endl;
-  cout << "start g - end g: " << start.green - end.green << endl;
-  cout << "start b - end b: " << start.blue - end.blue << endl;
+void balancedFade(rgb_color start, rgb_color end){
+  int redChange = start.red - end.red;
+  int greenChange = start.green - end.green;
+  int blueChange = start.blue - end.blue;
+  int absRed = redChange<0? 0-redChange : redChange;
+  int absRed = redChange<0? 0-redChange : redChange;
+  int absRed = redChange<0? 0-redChange : redChange;
+
+  cout << absRed << endl;
+
+  cout << "Change in red: " << redChange << endl;
+  cout << "Change in green: " << greenChange << endl;
+  cout << "Change in blue: " << blueChange << endl;
+  
+  int step = redChange > blueChange ? blueChange > greenChange ? greenChange : blueChange
+                                      :redChange>greenChange?greenChange:redChange;
+  cout << "Step: " << step << endl;
 }
 
 void set(rgb_color & color, int red, int green, int blue){
   color.red = red;
   color.green = green;
   color.blue = blue;
+}
+
+void printColor(rgb_color const color){
+  cout << "Red: " << color.red << ", green: " << color.green << ", blue: " << color.blue << endl;
 }
