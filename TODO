@@ -1,0 +1,5 @@
+Controller should allow:
+Turn strip on/off (button on, button off)
+change colors (allow presets) (15 presets - R G B W, then shades of each (mathematically decide))
+increase/decrease brightness (up and down buttons; ALSO WORK to increase/decrease speed if held of effects))
+varios effects (flash=fast rainbow change, strobe=slower, , fade=fast fade, smooth=slow fade, chase='chasing' fade; )
